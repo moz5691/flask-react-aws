@@ -118,3 +118,5 @@ aws --region us-east-1 rds describe-db-instances \
   --query 'DBInstances[].{Address:Endpoint.Address}'
 
 ```
+
+postgres://webapp:password@flask-react-db-fargate.cecs7qtovf8h.us-east-1.rds.amazonaws.com:5432/users_prod
