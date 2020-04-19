@@ -80,3 +80,26 @@ $ docker push 794200276070.dkr.ecr.us-east-1.amazonaws.com/tdd-client:prod
 ```
 
 test added
+
+#### ECR build for Fargate
+
+```sh
+$ export REACT_APP_USERS_SERVICE_URL=http://LOAD_BALANCER_DNS_NAME
+
+$ docker build \
+  -f services/users/Dockerfile.prod \
+  -t 794200276070.dkr.ecr.us-east-1.amazonaws.com/tdd-users-fargate:prod \
+  ./services/users
+
+$ docker build \
+  -f services/client/Dockerfile.prod \
+  -t 794200276070.dkr.ecr.us-east-1.amazonaws.com/tdd-client-fargate:prod \
+  --build-arg NODE_ENV=production \
+  --build-arg REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL} \
+  ./services/client
+
+$ docker push 794200276070.dkr.ecr.us-east-1.amazonaws.com/tdd-users-fargate:prod
+
+$ docker push 794200276070.dkr.ecr.us-east-1.amazonaws.com/tdd-client-fargate:prod
+
+```
