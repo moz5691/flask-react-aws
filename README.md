@@ -10,12 +10,6 @@ https://testdriven.io/courses/auth-flask-react/
 $ aws sts get-caller-identity
 ```
 
-{
-"UserId": "AIDA3R2QGPRTLWDUFYCBT",
-"Account": "794200276070",
-"Arn": "arn:aws:iam::794200276070:user/sls-admin"
-}
-
 - Create repository in AWS
 
 ```sh
