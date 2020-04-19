@@ -103,3 +103,18 @@ $ docker push 794200276070.dkr.ecr.us-east-1.amazonaws.com/tdd-users-fargate:pro
 $ docker push 794200276070.dkr.ecr.us-east-1.amazonaws.com/tdd-client-fargate:prod
 
 ```
+
+#### Query database
+
+```sh
+aws --region us-east-1 rds describe-db-instances \
+  --db-instance-identifier flask-react-db-fargate \
+  --query 'DBInstances[].{DBInstanceStatus:DBInstanceStatus}'
+
+
+
+aws --region us-east-1 rds describe-db-instances \
+  --db-instance-identifier flask-react-db-fargate \
+  --query 'DBInstances[].{Address:Endpoint.Address}'
+
+```
